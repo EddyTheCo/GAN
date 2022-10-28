@@ -37,7 +37,9 @@ The code test the generator by producing a image from the resulting tensor. The 
 ### Build and install
 ```
 git clone git@github.com:EddyTheCo/GAN.git GAN 
-cd GAN 
+cd GAN
+mkdir build
+cd build 
 cmake -DCMAKE_INSTALL_PREFIX=install -DTEST=ON -DTRAIN=ON -DDISCRIMINATOR=DGAN -DGENERATOR=GGAN -DDATASET=MNIST -DCUSTOM_MODULES="DGAN;GGAN" ../
 cmake --build . --target install -- -j4
 ```
