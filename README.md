@@ -45,6 +45,8 @@ cmake --build . --target install -- -j4
 ```
 
 ### Execute
+
+Set the different application parameter on the gan_mnist.yaml. 
 ```
 ./install/bin/GAN install/INPUT/gan_mnist.yaml
 ```
