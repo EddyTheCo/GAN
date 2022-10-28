@@ -45,6 +45,7 @@ if(TRAIN)
 endif(TRAIN)
 if(TEST)
 	target_compile_definitions(GAN PRIVATE TEST)
+	install(DIRECTORY  DESTINATION ./PICTURES)
 endif(TEST)
 
 
@@ -97,6 +98,13 @@ FetchContent_Declare(
 	)
 FetchContent_MakeAvailable(yaml-torch)
 target_link_libraries(GAN PRIVATE  yaml-torch)
+FetchContent_Declare(
+	png-torch
+	GIT_REPOSITORY git@github.com:EddyTheCo/png-torch.git
+	GIT_TAG main
+	)
+FetchContent_MakeAvailable(png-torch)
+target_link_libraries(GAN PRIVATE  png-torch)
 
 target_compile_features(GAN PUBLIC cxx_std_17)
 
