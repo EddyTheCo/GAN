@@ -21,11 +21,12 @@ It uses [yaml](https://github.com/jbeder/yaml-cpp) [input files](INPUT) for conf
 
 ### Note on this
 
-Custom modules and custom datasets must  have a constructor of the form 
+Custom modules and custom datasets must  have public functions of the form 
 
-|Object|Object constructor|
+|Object|Public function|
 |-------------|------------------------------------|
-|Custom_Module|Custom_ModuleImpl(YAML::Node config)|
+|Custom_Module|Custom_Module(YAML::Node config)|
+|Custom_Module|int64_t get_numel(void)|
 |Custom_Dataset|Custom_DatasetImpl(const std::string& root, Mode mode = Mode::kTrain)|
 
 ### Testing the generator
