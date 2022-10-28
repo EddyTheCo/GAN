@@ -1,0 +1,39 @@
+Discriminator: {
+  Name: DGAN, #not used by the program
+  layers: [196,512,256,128,1],
+  leaky relu: 0.2,
+  dropout: 0.3,
+}
+Generator: {
+  Name: GGAN, #not used by the program
+  layers: [32,128,256,512,196],
+  leaky relu: 0.2,
+}
+Dataset: {
+  Name: CMNIST, #this is not used by the program is just for claritity;
+  From: ,
+}
+Load and Save Module: {
+  Restart: NO,
+  From: "",
+  To: "",
+  Save every: 100,
+}
+Train: {
+  Batch size: 6,
+  Number of batches: 20,
+}
+Test: {
+  Batch size: 64,
+  image width: 14,
+  image height: 14,
+}
+
+Optimizer: {
+  Adam: {
+    lr: 0.002,
+}
+}
+Number of epochs: 100
+USE_GPU: false 
+Return size: no

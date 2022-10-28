@@ -1,0 +1,43 @@
+Discriminator: {
+  Name: MPS, # not used by the program
+  Sin: 196,
+  Sout: 2,
+  Initial bond dimension: 1,
+  Maximum bond dimension: 32,
+  Feature bond dimension: 2,
+  Truncation: 0.0000000001,
+  Feature Map: 0, 
+}
+Generator: {
+  Name: GGAN, # not used by the program
+  layers: [32,128,256,512,196]
+}
+Dataset: {
+  Name: CMNIST, #this is not used by the program is just for clarity;
+  From: ,
+}
+Load and Save Module: {
+  Restart: NO,
+  From: "",
+  To: "",
+  Save every: 100,
+}
+Train: {
+  Batch size: 6,
+  Number of batches: 20,
+}
+Test: {
+  Batch size: 64,
+  image width: 14,
+  image height: 14,
+}
+
+Optimizer: {
+  Adam: {
+    lr: 0.002,
+}
+}
+Number of epochs: 1000
+
+USE_GPU: false 
+Return size: no
