@@ -13,7 +13,7 @@
 using namespace custom_models;
 using namespace custom_models::datasets;
 using namespace torch::data::datasets;
-
+using namespace torch::indexing;
 
 	template <typename generator>
 void test(generator& gen, const int64_t num_of_pictures,const int64_t width,const int64_t height,torch::Device device,const size_t &epoch)
@@ -190,6 +190,6 @@ int main(int argc, char** argv)
 	}
 	torch::save(discriminator, (config["Load and Save Module"])["To"].as<std::string>()+"discriminator.pt");
 	torch::save(generator, (config["Load and Save Module"])["To"].as<std::string>()+"generator.pt");
-	std::cout<<"Generator numel:"<<generator.get_numel()<<std::endl;
-	std::cout<<"Discriminator numel:"<<discriminator.get_numel()<<std::endl;
+	std::cout<<"Generator numel:"<<generator->get_numel()<<std::endl;
+	std::cout<<"Discriminator numel:"<<discriminator->get_numel()<<std::endl;
 }
