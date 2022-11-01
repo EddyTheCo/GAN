@@ -174,22 +174,24 @@ int main(int argc, char** argv)
 		std::cout<<"Epoch:"<<epoch<<std::endl;
 #if TRAIN
 		train(epoch,generator,discriminator,device,*train_loader,config);
-#endif
-#if TEST
-		test(generator,(config["Test"])["Batch size"].as<int64_t>(),
-				(config["Test"])["image width"].as<int64_t>(),
-				(config["Test"])["image height"].as<int64_t>(),device,epoch);
-#endif
 		if(epoch%((config["Load and Save Module"])["Save every"].as<size_t>())==0)
 		{
 			std::cout<<"Saving model to "<<(config["Load and Save Module"])["To"].as<std::string>()<<std::endl;
 			torch::save(discriminator, (config["Load and Save Module"])["To"].as<std::string>()+"discriminator.pt");
 			torch::save(generator, (config["Load and Save Module"])["To"].as<std::string>()+"generator.pt");
 		}
+#endif
+#if TEST
+		test(generator,(config["Test"])["Batch size"].as<int64_t>(),
+				(config["Test"])["image width"].as<int64_t>(),
+				(config["Test"])["image height"].as<int64_t>(),device,epoch);
+#endif
 
 	}
+#if TRAIN	
 	torch::save(discriminator, (config["Load and Save Module"])["To"].as<std::string>()+"discriminator.pt");
 	torch::save(generator, (config["Load and Save Module"])["To"].as<std::string>()+"generator.pt");
+#endif	
 	std::cout<<"Generator numel:"<<generator->get_numel()<<std::endl;
 	std::cout<<"Discriminator numel:"<<discriminator->get_numel()<<std::endl;
 }
