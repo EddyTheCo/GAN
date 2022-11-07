@@ -1,6 +1,6 @@
 Discriminator: {
   Name: MPS, # not used by the program
-  Sin: 196,
+  Sin: 4,
   Sout: 2,
   Initial bond dimension: 1,
   Maximum bond dimension: 32,
@@ -10,11 +10,11 @@ Discriminator: {
 }
 Generator: {
   Name: GGAN, # not used by the program
-  layers: [32,128,256,512,196],
+  layers: [32,128,256,4],
   leaky relu: 0.2,
 }
 Dataset: {
-  Name: CMNIST, #this is not used by the program is just for clarity;
+  Name: IRIS, #this is not used by the program is just for clarity;
   From: ,
 }
 Load and Save Module: {
