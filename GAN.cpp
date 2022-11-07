@@ -8,13 +8,15 @@
 #include"custom_modules.hpp"
 #include"custom_datasets.hpp"
 #include"utils/yaml-torch.hpp"
+#if TEST
 #include"utils/png-torch.hpp"
-
+#endif
 using namespace custom_models;
 using namespace custom_models::datasets;
 using namespace torch::data::datasets;
 using namespace torch::indexing;
 
+#if TEST
 	template <typename generator>
 void test(generator& gen, const int64_t num_of_pictures,const int64_t width,const int64_t height,torch::Device device,const size_t &epoch)
 {
@@ -24,6 +26,7 @@ void test(generator& gen, const int64_t num_of_pictures,const int64_t width,cons
 	png_interface::write_png_file(("PICTURES/Test_"+std::to_string(epoch)+".png").c_str(),
 			G_result.view({num_of_pictures,width,height}));
 }
+#endif
 template <typename DataLoader, typename generator,typename discriminator>
 void train(size_t epoch, generator& gen, discriminator &dis,torch::Device device, DataLoader& data_loader,YAML::Node config) {
 

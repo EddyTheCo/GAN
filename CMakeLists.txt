@@ -98,6 +98,7 @@ FetchContent_Declare(
 	)
 FetchContent_MakeAvailable(yaml-torch)
 target_link_libraries(GAN PRIVATE  yaml-torch)
+if(TEST)
 FetchContent_Declare(
 	png-torch
 	GIT_REPOSITORY git@github.com:EddyTheCo/png-torch.git
@@ -105,7 +106,7 @@ FetchContent_Declare(
 	)
 FetchContent_MakeAvailable(png-torch)
 target_link_libraries(GAN PRIVATE  png-torch)
-
+endif(TEST)
 target_compile_features(GAN PUBLIC cxx_std_17)
 
 
