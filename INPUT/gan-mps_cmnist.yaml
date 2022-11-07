@@ -40,4 +40,3 @@ Optimizer: {
 Number of epochs: 1000
 
 USE_GPU: false 
-Return size: no
